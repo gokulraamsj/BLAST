@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BLAST — National Level Technical Symposium</title>
+<meta name="description" content="BLAST is a national-level technical symposium — ignite ideas, launch innovation." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <span class="loader-mark">B<span class="dot">/</span>LAST</span>
+    <div class="loader-bar"><span></span></div>
+    <span class="loader-status" id="loaderStatus">INITIATING SEQUENCE</span>
+  </div>
+</div>
+
+<!-- Background layers -->
+<div class="bg-field" aria-hidden="true">
+  <canvas id="starfield"></canvas>
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow--one"></div>
+  <div class="bg-glow bg-glow--two"></div>
+</div>
+
+<!-- NAV -->
+<header class="nav" id="siteNav">
+  <div class="nav__inner">
+    <a href="#home" class="nav__brand">B<span>/</span>LAST</a>
+
+    <nav class="nav__links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#why">Why Join</a>
+      <a href="#sponsors">Sponsors</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a href="#register" class="btn btn--primary btn--sm">Register</a>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav__mobile" id="navMobile">
+    <a href="#about">About</a>
+    <a href="#events">Events</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#why">Why Join</a>
+    <a href="#sponsors">Sponsors</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+    <a href="#register" class="btn btn--primary btn--block">Register Now</a>
+  </div>
+</header>
+
+<main id="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow reveal">NATIONAL LEVEL TECH SYMPOSIUM · T-MINUS TO IGNITION</p>
+
+      <h1 class="hero__title reveal">
+        <span class="hero__title-word">B</span><span class="hero__title-word">L</span><span class="hero__title-word">A</span><span class="hero__title-word">S</span><span class="hero__title-word">T</span>
+      </h1>
+
+      <p class="hero__tagline reveal">
+        Three days. One countdown. Every idea gets a launch window —
+        <span class="grad-text">code, build, pitch, and ignite</span> alongside the sharpest minds in tech.
+      </p>
+
+      <div class="hero__cta reveal">
+        <a href="#register" class="btn btn--primary btn--lg">
+          <span>Register Now</span>
+        </a>
+        <a href="#events" class="btn btn--ghost btn--lg">Explore Events</a>
+      </div>
+
+      <div class="hero__countdown reveal" id="countdown" aria-label="Countdown to BLAST">
+        <div class="cd-block"><span class="cd-num" id="cdDays">00</span><span class="cd-label">Days</span></div>
+        <div class="cd-block"><span class="cd-num" id="cdHours">00</span><span class="cd-label">Hrs</span></div>
+        <div class="cd-block"><span class="cd-num" id="cdMins">00</span><span class="cd-label">Min</span></div>
+        <div class="cd-block"><span class="cd-num" id="cdSecs">00</span><span class="cd-label">Sec</span></div>
+      </div>
+    </div>
+
+    <div class="hero__scroll-cue" aria-hidden="true">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">ABOUT THE SYMPOSIUM</p>
+        <h2>Where curiosity hits <span class="grad-text">escape velocity</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <p>
+            BLAST is a national-level technical symposium bringing together students, researchers, and
+            builders from across the country for three days of hackathons, technical paper presentations,
+            robotics battles, design sprints, and workshops led by industry practitioners.
+          </p>
+          <p>
+            Our objective is simple: compress a year of learning, networking, and building into one
+            high-energy weekend — and send every participant back with a working prototype, a new
+            collaborator, or a sharper idea than the one they walked in with.
+          </p>
+          <ul class="about-list">
+            <li><span class="tick">✓</span> 20+ technical &amp; non-technical events</li>
+            <li><span class="tick">✓</span> Industry mentors &amp; expert judging panels</li>
+            <li><span class="tick">✓</span> ₹5,00,000+ in prizes &amp; goodies</li>
+          </ul>
+        </div>
+
+        <div class="about-stats reveal">
+          <div class="stat-card">
+            <span class="stat-num">3</span>
+            <span class="stat-label">Days of Launch Window</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">2500+</span>
+            <span class="stat-label">Participants Expected</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">40+</span>
+            <span class="stat-label">Partner Institutions</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">₹5L+</span>
+            <span class="stat-label">Prize Pool</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="section" id="events">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">MISSION MODULES</p>
+        <h2>Pick your <span class="grad-text">trajectory</span></h2>
+        <p class="section-sub">Every event is a self-contained mission. Join one, or stack a few across the three days.</p>
+      </div>
+
+      <div class="events-grid">
+
+        <article class="event-card reveal">
+          <div class="event-card__icon">⚡</div>
+          <h3>Hack the Grid</h3>
+          <p>24-hour hackathon. Build a working solution for real infra problems submitted by our sponsor partners.</p>
+          <a href="#" class="card-link">Learn More <span>→</span></a>
+        </article>
+
+        <article class="event-card reveal">
+          <div class="event-card__icon">🤖</div>
+          <h3>Bot Arena</h3>
+          <p>Robotics combat &amp; obstacle-course bot racing. Bring your own bot or build on-site with our kits.</p>
+          <a href="#" class="card-link">Learn More <span>→</span></a>
+        </article>
+
+        <article class="event-card reveal">
+          <div class="event-card__icon">📄</div>
+          <h3>Paper Orbit</h3>
+          <p>Technical paper presentation across AI, systems, and sustainable engineering tracks.</p>
+          <a href="#" class="card-link">Learn More <span>→</span></a>
+        </article>
+
+        <article class="event-card reveal">
+          <div class="event-card__icon">🎯</div>
+          <h3>Pitch Countdown</h3>
+          <p>60-second startup pitch battle in front of VCs and founders. No deck, just conviction.</p>
+          <a href="#" class="card-link">Learn More <span>→</span></a>
+        </article>
+
+        <article class="event-card reveal">
+          <div class="event-card__icon">🧩</div>
+          <h3>Cipher Run</h3>
+          <p>Campus-wide CTF &amp; cryptic puzzle hunt. Teams race checkpoints for the fastest solve time.</p>
+          <a href="#" class="card-link">Learn More <span>→</span></a>
+        </article>
+
+        <article class="event-card reveal">
+          <div class="event-card__icon">🎨</div>
+          <h3>UI Launchpad</h3>
+          <p>Design sprint — take a rough product brief to a polished, prototyped interface in 6 hours.</p>
+          <a href="#" class="card-link">Learn More <span>→</span></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="section" id="schedule">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">FLIGHT PLAN</p>
+        <h2>Three-day <span class="grad-text">mission timeline</span></h2>
+      </div>
+
+      <div class="schedule-tabs reveal" role="tablist" aria-label="Schedule days">
+        <button class="tab-btn is-active" data-day="1">Day 01</button>
+        <button class="tab-btn" data-day="2">Day 02</button>
+        <button class="tab-btn" data-day="3">Day 03</button>
+      </div>
+
+      <div class="timeline reveal" data-day-panel="1">
+        <div class="tl-item">
+          <span class="tl-time">08:30</span>
+          <div class="tl-body"><h4>Check-in &amp; Ignition Kit Pickup</h4><p>Registration desk, ID badges, welcome kits.</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">10:00</span>
+          <div class="tl-body"><h4>Opening Ceremony</h4><p>Keynote address + official BLAST-off.</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">12:00</span>
+          <div class="tl-body"><h4>Hack the Grid — Kickoff</h4><p>Problem statements released, teams begin building.</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">15:00</span>
+          <div class="tl-body"><h4>Paper Orbit — Round 1</h4><p>Technical paper presentations begin, Track A &amp; B.</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">19:00</span>
+          <div class="tl-body"><h4>Overnight Build Lounge Opens</h4><p>Snacks, mentors on floor, hack continues.</p></div>
+        </div>
+      </div>
+
+      <div class="timeline is-hidden" data-day-panel="2">
+        <div class="tl-item">
+          <span class="tl-time">09:00</span>
+          <div class="tl-body"><h4>Bot Arena — Qualifiers</h4><p>Robotics combat qualifying rounds.</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">11:00</span>
+          <div class="tl-body"><h4>Cipher Run</h4><p>Campus-wide CTF and puzzle hunt begins.</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">14:00</span>
+          <div class="tl-body"><h4>UI Launchpad Sprint</h4><p>6-hour design sprint, briefs released.</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">18:00</span>
+          <div class="tl-body"><h4>Hack the Grid — Submission</h4><p>Final builds submitted for judging.</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">20:00</span>
+          <div class="tl-body"><h4>BLAST Night</h4><p>Live music, food trucks, and community meetup.</p></div>
+        </div>
+      </div>
+
+      <div class="timeline is-hidden" data-day-panel="3">
+        <div class="tl-item">
+          <span class="tl-time">09:30</span>
+          <div class="tl-body"><h4>Bot Arena — Finals</h4><p>Grand robotics finale on the main stage.</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">11:30</span>
+          <div class="tl-body"><h4>Pitch Countdown Finals</h4><p>Top 10 startups pitch to the judging panel.</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">14:00</span>
+          <div class="tl-body"><h4>Hack the Grid — Demos</h4><p>Finalist teams demo live to sponsors &amp; judges.</p></div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-time">16:30</span>
+          <div class="tl-body"><h4>Closing Ceremony &amp; Awards</h4><p>Prize distribution, certificates, and closing keynote.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY PARTICIPATE -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">MISSION BENEFITS</p>
+        <h2>Why <span class="grad-text">join the launch</span></h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon">🌐</div>
+          <h3>Networking</h3>
+          <p>Meet 2,500+ peers, mentors, founders, and recruiters from 40+ partner institutions.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">📜</div>
+          <h3>Certificates</h3>
+          <p>Verified digital certificates of participation and merit for every registered attendee.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">💰</div>
+          <h3>Cash Prizes</h3>
+          <p>Compete for a combined prize pool of ₹5,00,000+ across all mission modules.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">🚀</div>
+          <h3>Skill Development</h3>
+          <p>Hands-on workshops and mentor office-hours across AI, robotics, and product design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORS -->
+  <section class="section" id="sponsors">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">MISSION PARTNERS</p>
+        <h2>Backed by <span class="grad-text">ground control</span></h2>
+      </div>
+
+      <div class="sponsor-grid reveal">
+        <div class="sponsor-logo">NOVA<span>TECH</span></div>
+        <div class="sponsor-logo">ORBIT<span>LABS</span></div>
+        <div class="sponsor-logo">QUANT<span>UM+</span></div>
+        <div class="sponsor-logo">VERT<span>EX</span></div>
+        <div class="sponsor-logo">PIXEL<span>FORGE</span></div>
+        <div class="sponsor-logo">HELIX<span>IO</span></div>
+        <div class="sponsor-logo">ZENITH<span>CO</span></div>
+        <div class="sponsor-logo">FLUX<span>WORKS</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">LAST YEAR'S LAUNCH</p>
+        <h2>Glimpses from <span class="grad-text">BLAST 2025</span></h2>
+      </div>
+
+      <div class="gallery-grid reveal">
+        <div class="gallery-card gallery-card--wide">
+          <div class="gallery-img gimg-1"></div>
+          <div class="gallery-overlay"><span>Opening Keynote</span></div>
+        </div>
+        <div class="gallery-card">
+          <div class="gallery-img gimg-2"></div>
+          <div class="gallery-overlay"><span>Hack the Grid</span></div>
+        </div>
+        <div class="gallery-card">
+          <div class="gallery-img gimg-3"></div>
+          <div class="gallery-overlay"><span>Bot Arena Finals</span></div>
+        </div>
+        <div class="gallery-card">
+          <div class="gallery-img gimg-4"></div>
+          <div class="gallery-overlay"><span>BLAST Night</span></div>
+        </div>
+        <div class="gallery-card gallery-card--wide">
+          <div class="gallery-img gimg-5"></div>
+          <div class="gallery-overlay"><span>Closing Ceremony</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container container--narrow">
+      <div class="section-head reveal">
+        <p class="eyebrow">PRE-FLIGHT CHECKLIST</p>
+        <h2>Frequently asked <span class="grad-text">questions</span></h2>
+      </div>
+
+      <div class="accordion reveal">
+        <div class="acc-item is-open">
+          <button class="acc-trigger">
+            <span>Who can participate in BLAST?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-panel">
+            <p>Any undergraduate or postgraduate student, from any institution, can register. Some events allow individual entries; others require teams of 2–4.</p>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger">
+            <span>Is there a registration fee?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-panel">
+            <p>General entry is free. Select flagship events (Hack the Grid, Bot Arena) have a nominal per-team fee that covers kits and meals.</p>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger">
+            <span>Do I need a team to register?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-panel">
+            <p>No — you can register solo and form or join a team on-site through our team-matching board.</p>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger">
+            <span>Will accommodation be provided?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-panel">
+            <p>Yes, subsidized on-campus accommodation is available for outstation participants on a first-come basis.</p>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger">
+            <span>How do I get a certificate?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-panel">
+            <p>All registered participants receive a verified digital certificate automatically within 7 days of the event closing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / REGISTER -->
+  <section class="section" id="contact">
+    <div class="container" id="register">
+      <div class="section-head reveal">
+        <p class="eyebrow">GROUND CONTROL</p>
+        <h2>Get in <span class="grad-text">touch</span></h2>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <div class="contact-row">
+            <span class="contact-icon">📍</span>
+            <div><h4>Venue</h4><p>Dept. of Technology, National Institute Campus, Chennai, Tamil Nadu — 600001</p></div>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">✉️</span>
+            <div><h4>Email</h4><p>hello@blastsymposium.edu</p></div>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">📞</span>
+            <div><h4>Phone</h4><p>+91 98765 43210</p></div>
+          </div>
+
+          <div class="social-row">
+            <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-btn" aria-label="Twitter / X">X</a>
+            <a href="#" class="social-btn" aria-label="YouTube">YT</a>
+          </div>
+
+          <a href="#" class="btn btn--primary btn--block" style="margin-top:2rem;">Register Now</a>
+        </div>
+
+        <div class="map-placeholder" role="img" aria-label="Map placeholder showing venue location">
+          <div class="map-grid"></div>
+          <span class="map-pin">📍</span>
+          <span class="map-label">National Institute Campus</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="nav__brand">B<span>/</span>LAST</span>
+      <p>National-level technical symposium. Ignite. Build. Launch.</p>
+    </div>
+
+    <div class="footer__links">
+      <h5>Quick Links</h5>
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer__links">
+      <h5>Follow</h5>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter / X</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2026 BLAST Symposium. All rights reserved. Built with ⚡ by the Organizing Committee.</p>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Back to top">↑</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>
