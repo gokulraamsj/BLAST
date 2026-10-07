@@ -4,7 +4,7 @@
 
 // Point this at your backend. Use the local FastAPI server while testing,
 // then swap to your Render URL once deployed (see blast-backend/README.md).
-const API_BASE = "https://ominous-succotash-qvvjwgq75xj6hpr6-8000.app.github.dev";
+const API_BASE = "https://blast-y8dg.onrender.com";
 
 document.addEventListener('DOMContentLoaded', () => {
 
