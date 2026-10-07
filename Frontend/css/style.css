@@ -96,6 +96,7 @@ button{ font-family: inherit; cursor:pointer; }
   box-shadow: 0 0 0 0 rgba(59,130,246,0);
 }
 .btn--primary:hover{ transform: translateY(-2px); box-shadow: 0 10px 30px -8px rgba(59,130,246,0.55); }
+.btn--primary:disabled{ opacity:0.6; cursor:not-allowed; transform:none; box-shadow:none; }
 .btn--ghost{
   background: rgba(255,255,255,0.03);
   border-color: var(--border-strong);
@@ -436,4 +437,43 @@ button{ font-family: inherit; cursor:pointer; }
   .hero__countdown{ gap:10px; }
   .cd-block{ width: 60px; padding: 10px 0; }
   .about-stats{ grid-template-columns: 1fr 1fr; }
+}
+
+/* ============ REGISTRATION FORM ============ */
+.register-panel{
+  margin-top: 64px;
+  padding: 44px clamp(20px, 4vw, 48px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.form-grid{
+  display:grid; grid-template-columns: repeat(2, 1fr); gap: 20px 24px;
+  margin-bottom: 28px;
+}
+.field{ display:flex; flex-direction:column; gap:8px; }
+.field label{ font-size:0.82rem; color: var(--muted); font-weight:600; }
+.field input, .field select{
+  padding: 12px 14px; border-radius: 10px; border:1px solid var(--border-strong);
+  background: rgba(255,255,255,0.03); color: var(--white); font-family: var(--font-body);
+  font-size: 0.95rem; transition: border-color .25s var(--ease), background .25s var(--ease);
+}
+.field input:focus, .field select:focus{
+  outline:none; border-color: var(--cyan); background: rgba(255,255,255,0.05);
+}
+.field select option{ background: var(--surface); color: var(--white); }
+
+.events-field{ border:1px solid var(--border); border-radius: var(--radius-md); padding: 22px 24px; margin: 0 0 24px; }
+.events-field legend{ padding:0 6px; font-size:0.82rem; color: var(--cyan); font-weight:600; letter-spacing:0.04em; }
+.checkbox-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:12px 20px; margin-top:6px; }
+.checkbox{ display:flex; align-items:center; gap:10px; font-size:0.92rem; color: var(--white); cursor:pointer; }
+.checkbox input{ width:16px; height:16px; accent-color: var(--cyan); cursor:pointer; }
+
+.form-msg{ min-height: 22px; font-size:0.88rem; margin-bottom: 16px; }
+.form-msg--success{ color: var(--cyan); }
+.form-msg--error{ color: #f87171; }
+
+@media (max-width: 700px){
+  .form-grid{ grid-template-columns: 1fr; }
+  .checkbox-grid{ grid-template-columns: 1fr 1fr; }
 }

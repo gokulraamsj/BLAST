@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>BLAST — Admin Dashboard</title>
+<style>
+  :root{ --bg:#05060a; --surface:#0b0e17; --border:rgba(255,255,255,0.1);
+         --white:#f5f7ff; --muted:#9aa3b8; --cyan:#22d3ee; --blue:#3b82f6; --purple:#a855f7; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--bg); color:var(--white);
+        font-family:-apple-system,Segoe UI,Inter,sans-serif; padding:32px; }
+  h1{ font-size:1.6rem; margin:0 0 4px; }
+  .sub{ color:var(--muted); margin-bottom:24px; font-size:0.9rem; }
+  .bar{ display:flex; align-items:center; justify-content:space-between;
+        flex-wrap:wrap; gap:12px; margin-bottom:20px; }
+  .count{ font-size:0.9rem; color:var(--cyan); }
+  .btn{ display:inline-block; padding:10px 18px; border-radius:999px; font-weight:600;
+        font-size:0.85rem; text-decoration:none; color:#04050a;
+        background:linear-gradient(115deg,var(--blue),var(--cyan),var(--purple)); }
+  table{ width:100%; border-collapse:collapse; font-size:0.85rem; }
+  th, td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--border); white-space:nowrap; }
+  th{ color:var(--muted); font-weight:600; text-transform:uppercase; font-size:0.72rem; letter-spacing:.05em; }
+  tr:hover td{ background:rgba(255,255,255,0.03); }
+  .empty{ color:var(--muted); padding:40px 0; text-align:center; }
+  .table-wrap{ overflow-x:auto; border:1px solid var(--border); border-radius:14px; }
+  .tag{ display:inline-block; background:rgba(34,211,238,0.12); color:var(--cyan);
+        border-radius:999px; padding:2px 10px; font-size:0.72rem; margin:2px 2px 0 0; }
+</style>
+</head>
+<body>
+  <h1>BLAST — Registrations</h1>
+  <p class="sub">Admin dashboard. Credentials required to view.</p>
+
+  <div class="bar">
+    <span class="count">{{ total }} total registration{{ "s" if total != 1 else "" }}</span>
+    <a class="btn" href="/admin/export.csv">Export CSV</a>
+  </div>
+
+  <div class="table-wrap">
+    {% if registrations %}
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>College</th>
+          <th>Year</th><th>Events</th><th>Team</th><th>Registered</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in registrations %}
+        <tr>
+          <td>{{ r.id }}</td>
+          <td>{{ r.full_name }}</td>
+          <td>{{ r.email }}</td>
+          <td>{{ r.phone }}</td>
+          <td>{{ r.college }}</td>
+          <td>{{ r.year_of_study or "—" }}</td>
+          <td>
+            {% for code in r.events.split(",") %}
+              <span class="tag">{{ event_names.get(code, code) }}</span>
+            {% endfor %}
+          </td>
+          <td>{{ r.team_name or "—" }}{% if r.team_size %} ({{ r.team_size }}){% endif %}</td>
+          <td>{{ r.created_at }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="empty">No registrations yet.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

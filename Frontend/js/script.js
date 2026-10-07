@@ -2,6 +2,10 @@
 // BLAST — Symposium Landing Page Scripts
 // ============================================
 
+// Point this at your backend. Use the local FastAPI server while testing,
+// then swap to your Render URL once deployed (see blast-backend/README.md).
+const API_BASE = "https://ominous-succotash-qvvjwgq75xj6hpr6-8000.app.github.dev";
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- LOADER ---------- */
@@ -153,5 +157,71 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
+
+  /* ---------- REGISTRATION FORM ---------- */
+  const regForm = document.getElementById('regForm');
+  const formMsg = document.getElementById('formMsg');
+  const submitBtn = document.getElementById('submitBtn');
+
+  if (regForm) {
+    regForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const checkedEvents = Array.from(
+        regForm.querySelectorAll('input[name="events"]:checked')
+      ).map(el => el.value);
+
+      const payload = {
+        full_name: regForm.fullName.value.trim(),
+        email: regForm.email.value.trim(),
+        phone: regForm.phone.value.trim(),
+        college: regForm.college.value.trim(),
+        year_of_study: regForm.year.value || null,
+        events: checkedEvents,
+        team_name: regForm.teamName.value.trim() || null,
+        team_size: regForm.teamSize.value ? parseInt(regForm.teamSize.value, 10) : null,
+      };
+
+      if (!payload.full_name || !payload.email || !payload.phone || !payload.college) {
+        showMsg('Please fill in all required fields.', 'error');
+        return;
+      }
+      if (checkedEvents.length === 0) {
+        showMsg('Select at least one event.', 'error');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+      showMsg('', '');
+
+      try {
+        const res = await fetch(`${API_BASE}/api/register`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok) {
+          showMsg('🚀 Registration successful! Check your email for confirmation details.', 'success');
+          regForm.reset();
+        } else {
+          showMsg(data.detail || 'Something went wrong. Please try again.', 'error');
+        }
+      } catch (err) {
+        showMsg('Could not reach the server. Please try again shortly.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Registration';
+      }
+    });
+  }
+
+  function showMsg(text, type) {
+    formMsg.textContent = text;
+    formMsg.className = 'form-msg' + (type ? ` form-msg--${type}` : '');
+  }
 
 });
